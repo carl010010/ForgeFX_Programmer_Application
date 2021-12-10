@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using Utils;
 
 [RequireComponent(typeof(Rigidbody))]
 public class RobotArmDetatch : MonoBehaviour
@@ -10,15 +7,18 @@ public class RobotArmDetatch : MonoBehaviour
     [Tooltip("The max distance squared to a socket that will attach the arm")]
     public float AttachDistanceSqr = 0.01f;
 
-    Rigidbody _rigidbody;
-    Plane _plane;
 
     public Material highlightMaterial;
     [Range(0, 1)]
     public float brightness = 0.4f;
     
     public List<MeshRenderer> MeshRenderersToHighlight = new List<MeshRenderer>();
+    
     private List<Material> _materials = new List<Material>();
+    private Rigidbody _rigidbody;
+    private Plane _plane;
+
+    private Socket _socket;
 
     private void Start()
     {
@@ -30,6 +30,10 @@ public class RobotArmDetatch : MonoBehaviour
             Debug.LogError("No highlightMaterial found on " + name, this);
         }
 
+        if(transform.parent != null)
+        {
+            _socket = transform.parent.GetComponent<Socket>();
+        }
 
 
         foreach (MeshRenderer mr in MeshRenderersToHighlight)
@@ -60,14 +64,18 @@ public class RobotArmDetatch : MonoBehaviour
         {
             foreach(Socket socket in SocketManager.Instance.GetEnumerator())
             {
-                float distSqr = Vector3.SqrMagnitude(pos - socket.transform.position);
-                if(distSqr < AttachDistanceSqr)
+                if(socket.Attached == false)
                 {
-                    transform.parent = socket.transform;
-                    socket.Attached = true;
-                    _rigidbody.isKinematic = true;
-                    transform.position = socket.transform.position;
-                    transform.rotation = socket.transform.rotation;
+                    float distSqr = Vector3.SqrMagnitude(pos - socket.transform.position);
+                    if(distSqr < AttachDistanceSqr)
+                    {
+                        _socket = socket;
+                        transform.parent = _socket.transform;
+                        _socket.Attached = true;
+                        _rigidbody.isKinematic = true;
+                        transform.position = _socket.transform.position;
+                        transform.rotation = _socket.transform.rotation;
+                    }
                 }
             }
         }
@@ -77,6 +85,12 @@ public class RobotArmDetatch : MonoBehaviour
     {
         _rigidbody.isKinematic = true;
         transform.parent = null;
+
+        if(_socket != null && !_socket.Equals(null))
+        {
+            _socket.Attached = false;
+            _socket = null;
+        }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (_plane.Raycast(ray, out float distance))
@@ -89,6 +103,8 @@ public class RobotArmDetatch : MonoBehaviour
     {
         if(transform.parent == null)
             _rigidbody.isKinematic = false;
+
+        UnHighlight();
     }
 
     private void OnMouseOver()
