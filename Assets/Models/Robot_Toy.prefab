@@ -1,5 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &48199804130263956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5358263611747573502}
+  - component: {fileID: 1281249865534321948}
+  m_Layer: 0
+  m_Name: RightSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5358263611747573502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48199804130263956}
+  m_LocalRotation: {x: 0.35727698, y: 0.06649154, z: -0.02550888, w: 0.9312794}
+  m_LocalPosition: {x: 0.0583011, y: 0.035469785, z: -0.003430028}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9093664062682331245}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1281249865534321948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48199804130263956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b020fb1e0bbb9c4891fd1161b137c36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &402551783853056013
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +655,7 @@ GameObject:
   - component: {fileID: 9184483633246765771}
   - component: {fileID: 5943218964577177979}
   - component: {fileID: 5943218964577177980}
+  - component: {fileID: 1479747949290003760}
   m_Layer: 0
   m_Name: Robot_Upperarm_Right
   m_TagString: Untagged
@@ -632,7 +676,7 @@ Transform:
   m_Children:
   - {fileID: 3854143945475811313}
   m_Father: {fileID: 9093664062682331245}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &720200634255387762
 MeshFilter:
@@ -712,6 +756,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1479747949290003760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847299326700242739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b97c03a6b8304341a96fea54b8425a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3223307632340841923
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,6 +931,49 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3497398553255695655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2663472040017752240}
+  - component: {fileID: 271751906932127181}
+  m_Layer: 0
+  m_Name: LeftSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2663472040017752240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3497398553255695655}
+  m_LocalRotation: {x: 0.7109389, y: -0.29621282, z: -0.04652498, w: 0.63612837}
+  m_LocalPosition: {x: -0.05842346, y: 0.035445124, z: -0.00342999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9093664062682331245}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &271751906932127181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3497398553255695655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b020fb1e0bbb9c4891fd1161b137c36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3621945382895098483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +1100,8 @@ Transform:
   m_Children:
   - {fileID: 3699016943883471457}
   - {fileID: 7595111406234219553}
+  - {fileID: 2663472040017752240}
+  - {fileID: 5358263611747573502}
   - {fileID: 2644202315116037674}
   - {fileID: 6634201528232133274}
   m_Father: {fileID: 8247099115877215003}
@@ -1493,6 +1594,7 @@ GameObject:
   - component: {fileID: 6171153163692784439}
   - component: {fileID: 2248445340159903758}
   - component: {fileID: 2248445340159903757}
+  - component: {fileID: 2166173735204703407}
   m_Layer: 0
   m_Name: Robot_Upperarm_Left
   m_TagString: Untagged
@@ -1513,7 +1615,7 @@ Transform:
   m_Children:
   - {fileID: 4834973459936041035}
   m_Father: {fileID: 9093664062682331245}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8020639802165217060
 MeshFilter:
@@ -1593,6 +1695,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.024001991, y: 0.0232446, z: 0.05095543}
   m_Center: {x: 0.0000000030756906, y: -0.00004925659, z: 0.01335288}
+--- !u!114 &2166173735204703407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7695869537053089349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b97c03a6b8304341a96fea54b8425a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8297907307762458248
 GameObject:
   m_ObjectHideFlags: 0
