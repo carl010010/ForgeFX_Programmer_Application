@@ -13,10 +13,33 @@ public class RobotArmDetatch : MonoBehaviour
     Rigidbody _rigidbody;
     Plane _plane;
 
+    public Material highlightMaterial;
+    [Range(0, 1)]
+    public float brightness = 0.4f;
+    
+    public List<MeshRenderer> MeshRenderersToHighlight = new List<MeshRenderer>();
+    private List<Material> _materials = new List<Material>();
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _plane = new Plane(Vector3.forward, 0);
+
+        if (highlightMaterial == null)
+        {
+            Debug.LogError("No highlightMaterial found on " + name, this);
+        }
+
+
+
+        foreach (MeshRenderer mr in MeshRenderersToHighlight)
+        {
+            if (mr != null)
+            {
+                _materials.Add(mr.material);
+            }
+        }
+
     }
 
     private void Update()
@@ -67,4 +90,34 @@ public class RobotArmDetatch : MonoBehaviour
         if(transform.parent == null)
             _rigidbody.isKinematic = false;
     }
+
+    private void OnMouseOver()
+    {
+        Highlight();
+    }
+
+    private void OnMouseExit()
+    {
+        if (!_rigidbody.isKinematic || transform.parent != null) //This covers a bug where the user is dragging the arm to fast the highlight flickers
+        {
+            UnHighlight();
+        }
+    }
+
+    private void Highlight()
+    {
+        for (int i = 0; i < MeshRenderersToHighlight.Count; i++)
+        {
+            MeshRenderersToHighlight[i].material = highlightMaterial;
+        }
+    }
+
+    private void UnHighlight()
+    {
+        for (int i = 0; i < MeshRenderersToHighlight.Count; i++)
+        {
+            MeshRenderersToHighlight[i].material = _materials[i];
+        }
+    }
+
 }

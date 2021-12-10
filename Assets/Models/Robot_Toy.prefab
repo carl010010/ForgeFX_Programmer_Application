@@ -43,6 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b020fb1e0bbb9c4891fd1161b137c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnAttachedChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &402551783853056013
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +771,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b97c03a6b8304341a96fea54b8425a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachDistanceSqr: 0.01
+  highlightMaterial: {fileID: 2100000, guid: 7a7fa9176cb2f3646a95fac951fb5682, type: 2}
+  brightness: 1
+  MeshRenderersToHighlight:
+  - {fileID: 9184483633246765771}
+  - {fileID: 5471522233119488481}
+  - {fileID: 5279867700262503470}
 --- !u!1 &3223307632340841923
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,6 +984,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b020fb1e0bbb9c4891fd1161b137c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnAttachedChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3621945382895098483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,6 +1720,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b97c03a6b8304341a96fea54b8425a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachDistanceSqr: 0.01
+  highlightMaterial: {fileID: 2100000, guid: 7a7fa9176cb2f3646a95fac951fb5682, type: 2}
+  brightness: 1
+  MeshRenderersToHighlight:
+  - {fileID: 6171153163692784439}
+  - {fileID: 5146236793165693089}
+  - {fileID: 2886239764322378062}
 --- !u!1 &8297907307762458248
 GameObject:
   m_ObjectHideFlags: 0
