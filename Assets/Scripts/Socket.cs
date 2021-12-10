@@ -3,7 +3,7 @@ using Utils;
 
 public class Socket : MonoBehaviour
 {
-    public StringEvent OnAttachedChanged;
+    public StringEvent OnAttachedChanged = new StringEvent();
     public GameObject PreferedGameObject;
 
     private bool _attached = false;
@@ -39,5 +39,7 @@ public class Socket : MonoBehaviour
 
         if(transform.childCount > 0)
             Attached = true;
+        else
+            Attached = false;
     }
 }
