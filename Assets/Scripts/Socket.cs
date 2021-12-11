@@ -4,7 +4,7 @@ using Utils;
 public class Socket : MonoBehaviour
 {
     public StringEvent OnAttachedChanged = new StringEvent();
-    public GameObject PreferedGameObject;
+    public GameObject PreferredGameObject;
 
     private bool _attached = false;
     public bool Attached
@@ -20,13 +20,13 @@ public class Socket : MonoBehaviour
             {
                 text += " Detached";
             }
-            else if(PreferedGameObject == null || PreferedGameObject.Equals(null) || transform.GetChild(0).name == PreferedGameObject.name)
+            else if(PreferredGameObject == null || PreferredGameObject.Equals(null) || transform.GetChild(0).name == PreferredGameObject.name)
             {
                 text += " Attached";
             }
             else
             {
-                text = "This feels Funny.";
+                text = "This feels funny.";
             }   
 
             OnAttachedChanged?.Invoke(text);

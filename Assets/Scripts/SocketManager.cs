@@ -26,7 +26,7 @@ public class SocketManager: MonoBehaviour
         _socketPositions.Add(pos);
     }
 
-    public void RemoveSocketPostion(Socket pos)
+    public void RemoveSocketPosition(Socket pos)
     {
         _socketPositions.Remove(pos);
     }

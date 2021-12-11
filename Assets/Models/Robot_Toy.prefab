@@ -59,7 +59,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  PreferedGameObject: {fileID: 2847299326700242739}
+  PreferredGameObject: {fileID: 2847299326700242739}
 --- !u!1 &402551783853056013
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,8 +786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttachDistanceSqr: 0.01
-  highlightMaterial: {fileID: 2100000, guid: 7a7fa9176cb2f3646a95fac951fb5682, type: 2}
-  brightness: 1
+  HighlightMaterial: {fileID: 2100000, guid: 7a7fa9176cb2f3646a95fac951fb5682, type: 2}
   MeshRenderersToHighlight:
   - {fileID: 9184483633246765771}
   - {fileID: 5471522233119488481}
@@ -1014,7 +1013,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  PreferedGameObject: {fileID: 7695869537053089349}
+  PreferredGameObject: {fileID: 7695869537053089349}
 --- !u!1 &3621945382895098483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,8 +1746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttachDistanceSqr: 0.01
-  highlightMaterial: {fileID: 2100000, guid: 7a7fa9176cb2f3646a95fac951fb5682, type: 2}
-  brightness: 1
+  HighlightMaterial: {fileID: 2100000, guid: 7a7fa9176cb2f3646a95fac951fb5682, type: 2}
   MeshRenderersToHighlight:
   - {fileID: 6171153163692784439}
   - {fileID: 5146236793165693089}

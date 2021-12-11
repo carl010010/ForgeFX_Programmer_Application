@@ -16,7 +16,7 @@ public class SocketUnitTests
     }
 
     [Test]
-    public void TestSocktIsNotNulll()
+    public void TestSocketIsNotNull()
     {
         Assert.IsNotNull(socket);
     }
@@ -39,7 +39,7 @@ public class SocketUnitTests
     [Test]
     public void TestSocketEventDoesSendDetached()
     {
-        string testString = null;
+        string testString = null; 
 
         socket.OnAttachedChanged.AddListener((str) => {
             testString = str;
@@ -52,7 +52,7 @@ public class SocketUnitTests
     }
 
     [Test]
-    public void TestSocketEventDoesSendAttatched()
+    public void TestSocketEventDoesSendAttached()
     {
         string testString = null;
 

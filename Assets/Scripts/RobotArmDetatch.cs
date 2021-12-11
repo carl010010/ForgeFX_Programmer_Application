@@ -8,9 +8,7 @@ public class RobotArmDetatch : MonoBehaviour
     public float AttachDistanceSqr = 0.01f;
 
 
-    public Material highlightMaterial;
-    [Range(0, 1)]
-    public float brightness = 0.4f;
+    public Material HighlightMaterial;
     
     public List<MeshRenderer> MeshRenderersToHighlight = new List<MeshRenderer>();
     
@@ -25,7 +23,7 @@ public class RobotArmDetatch : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _plane = new Plane(Vector3.forward, 0);
 
-        if (highlightMaterial == null)
+        if (HighlightMaterial == null)
         {
             Debug.LogError("No highlightMaterial found on " + name, this);
         }
@@ -35,7 +33,7 @@ public class RobotArmDetatch : MonoBehaviour
             _socket = transform.parent.GetComponent<Socket>();
         }
 
-
+        //Save materails to switch back to after using highlight material
         foreach (MeshRenderer mr in MeshRenderersToHighlight)
         {
             if (mr != null)
@@ -60,22 +58,20 @@ public class RobotArmDetatch : MonoBehaviour
             transform.position = new Vector3(pos.x, 0.5f, pos.z);
         }
 
-        if(transform.parent == null)
+
+        foreach(Socket socket in SocketManager.Instance.GetEnumerator())
         {
-            foreach(Socket socket in SocketManager.Instance.GetEnumerator())
+            if(socket.Attached == false)
             {
-                if(socket.Attached == false)
+                float distSqr = Vector3.SqrMagnitude(pos - socket.transform.position);
+                if(distSqr < AttachDistanceSqr)
                 {
-                    float distSqr = Vector3.SqrMagnitude(pos - socket.transform.position);
-                    if(distSqr < AttachDistanceSqr)
-                    {
-                        _socket = socket;
-                        transform.parent = _socket.transform;
-                        _socket.Attached = true;
-                        _rigidbody.isKinematic = true;
-                        transform.position = _socket.transform.position;
-                        transform.rotation = _socket.transform.rotation;
-                    }
+                    _socket = socket;
+                    transform.parent = _socket.transform;
+                    _socket.Attached = true;
+                    _rigidbody.isKinematic = true;
+                    transform.position = _socket.transform.position;
+                    transform.rotation = _socket.transform.rotation;
                 }
             }
         }
@@ -104,7 +100,7 @@ public class RobotArmDetatch : MonoBehaviour
         if(transform.parent == null)
             _rigidbody.isKinematic = false;
 
-        UnHighlight();
+        Unhighlight();
     }
 
     private void OnMouseOver()
@@ -114,9 +110,9 @@ public class RobotArmDetatch : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (!_rigidbody.isKinematic || transform.parent != null) //This covers a bug where the user is dragging the arm to fast the highlight flickers
+        if (!_rigidbody.isKinematic || transform.parent != null) //This covers a bug where the user is dragging the arm to fast and makes the highlight flicker
         {
-            UnHighlight();
+            Unhighlight();
         }
     }
 
@@ -124,11 +120,11 @@ public class RobotArmDetatch : MonoBehaviour
     {
         for (int i = 0; i < MeshRenderersToHighlight.Count; i++)
         {
-            MeshRenderersToHighlight[i].material = highlightMaterial;
+            MeshRenderersToHighlight[i].material = HighlightMaterial;
         }
     }
 
-    private void UnHighlight()
+    private void Unhighlight()
     {
         for (int i = 0; i < MeshRenderersToHighlight.Count; i++)
         {
